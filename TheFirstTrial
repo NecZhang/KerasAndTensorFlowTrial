@@ -1,0 +1,30 @@
+import tensorflow as tf
+# print(tf.__version__)
+# print(tf.keras.__version__)
+
+## 张量的基本求和以及乘法操作
+# A = tf.constant([[1., 2.], [3., 4.]])
+# B = tf.constant([[5., 6.], [7., 8.]])
+#
+# C = tf.add(A, B)
+# D = tf.matmul(A, B)
+#
+# print(C)
+# print(D)
+
+# 自动求导机制
+x = tf.Variable(initial_value = 3.)
+with tf.GradientTape() as tape:
+    y = tf.square(x)
+y_grad = tape.gradient(y, x)
+print([y, y_grad])
+
+# x1 = tf.constant([[1., 2.], [3., 4.]])
+# y1 = tf.constant([[1.], [2.]])
+# w = tf.Variable(initial_value = [[1.], [2.]])
+# b = tf.Variable(initial_value = 1.)
+# with tf.GradientTape() as tape:
+#     L = 0.5 * tf.reduce_sum(tf.square(tf.matmul(x1, w) + b - y1))
+# w_grad, b_grad = tape.gradient(L, [w, b])
+# print([L.numpy(), w_grad.numpy(), b_grad.numpy()])
+
